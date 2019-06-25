@@ -2,9 +2,20 @@ package lava.poi.adaptor;
 
 import java.text.SimpleDateFormat;
 
-public abstract class BaseAdaptor {
+public abstract class BaseAdaptor<T> {
 
 	
+	final T _this;
+	
+	
+	
+	
+	public BaseAdaptor(T _this) {
+		super();
+		this._this = _this;
+	}
+
+
 	protected static SimpleDateFormat sdf_ymdhms=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
 			,ymd_cn=new SimpleDateFormat("yyyy-MM-dd")
 			,ymd=new SimpleDateFormat("yyyyMMdd")

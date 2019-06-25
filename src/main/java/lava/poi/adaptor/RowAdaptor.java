@@ -9,23 +9,23 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 
-public class RowAdaptor extends BaseAdaptor {
+public class RowAdaptor extends BaseAdaptor<Row> {
 
 	
-	private Row row;
+	
 
 	public RowAdaptor(Row row) {
-		super();
-		this.row = row;
+		super(row);
+		
 	}
 	
 	
 	
 	public  void setCellValue(int cellIndex, BigDecimal val) {
 		// TODO Auto-generated method stub
-		Cell cell=row.getCell(cellIndex);
+		Cell cell=_this.getCell(cellIndex);
   	    if(cell==null) {
-  		  cell=row.createCell(cellIndex);
+  		  cell=_this.createCell(cellIndex);
   	    }
   	    
 		cell.setCellValue(val.doubleValue());
@@ -34,9 +34,9 @@ public class RowAdaptor extends BaseAdaptor {
 
 	public  void setCellValue(int cellIndex, Integer val) {
 		// TODO Auto-generated method stub
-		Cell cell=row.getCell(cellIndex);
+		Cell cell=_this.getCell(cellIndex);
   	    if(cell==null) {
-  		  cell=row.createCell(cellIndex);
+  		  cell=_this.createCell(cellIndex);
   		  
   	    }
   	    
@@ -46,9 +46,9 @@ public class RowAdaptor extends BaseAdaptor {
 	}
 	
 	public  void setCellValue(int cellIndex,String val) {
-  	  Cell cell=row.getCell(cellIndex);
+  	  Cell cell=_this.getCell(cellIndex);
   	  if(cell==null) {
-  		  cell=row.createCell(cellIndex);
+  		  cell=_this.createCell(cellIndex);
   	  }
   	  if(!isAnyBlank(val)) {
 		     cell.setCellValue(val);
@@ -58,9 +58,9 @@ public class RowAdaptor extends BaseAdaptor {
 	
 	public void setCellValue(int cellIndex, Date val) {
 		// TODO Auto-generated method stub
-		Cell cell=row.getCell(cellIndex);
+		Cell cell=_this.getCell(cellIndex);
   	    if(cell==null) {
-  		  cell=row.createCell(cellIndex);
+  		  cell=_this.createCell(cellIndex);
   	    }
 		
 		
@@ -74,9 +74,9 @@ public class RowAdaptor extends BaseAdaptor {
     	for(Object val:vals) {
     		if(val ==null) {
     		}
-    		Cell cell=row.getCell(cellIndex);
+    		Cell cell=_this.getCell(cellIndex);
       	    if(cell==null) {
-      		  cell=row.createCell(cellIndex);
+      		  cell=_this.createCell(cellIndex);
       	    }
     		if(val instanceof String ) {
     		   setCellValue(cellIndex, (String)val);

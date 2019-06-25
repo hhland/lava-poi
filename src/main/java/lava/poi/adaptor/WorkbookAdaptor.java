@@ -8,29 +8,18 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 
-public class WorkbookAdaptor extends BaseAdaptor {
+public class WorkbookAdaptor extends BaseAdaptor<Workbook> {
 
 	
-	private Workbook workbook;
+	
 
 	public WorkbookAdaptor(Workbook workbook) {
-		super();
-		this.workbook = workbook;
-	}
-	
-	
-	public WorkbookAdaptor(InputStream inputStream) throws Exception{
-		try {
-			workbook = WorkbookFactory.create(inputStream);
-		} catch (Exception e) {
-			try {
-				workbook = new HSSFWorkbook(inputStream);
-			} catch (IOException e1) {
-				
-			}
-		}
+		super(workbook);
 		
 	}
+	
+	
+	
 	
 	
 }
